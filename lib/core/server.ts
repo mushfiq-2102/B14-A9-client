@@ -10,12 +10,16 @@ export const getSession = async () => {
     return session;
 }
 
+// JWT access token (signed by Better Auth) sent to the Express server as a Bearer token.
 export const getToken = async () => {
     const session = await getSession();
-    if (!session || !session.session?.token) {
+    if (!session) {
         redirect("/unauthorized");
     }
-    return session.session.token;
+    const { token } = await auth.api.getToken({
+        headers: await headers()
+    })
+    return token;
 }
 
 export const authFetch = async (api: string) => {
