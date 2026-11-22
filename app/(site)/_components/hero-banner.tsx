@@ -9,6 +9,7 @@ import { motion } from "framer-motion"
 import { buttonVariants } from "@/components/ui/button"
 import { RemoteImage } from "@/components/shared/remote-image"
 import { cn } from "@/lib/utils"
+import { HeroArt } from "./hero-art"
 
 const BANNER_IMAGE =
   "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1800&q=80"
@@ -35,7 +36,8 @@ export function HeroBanner() {
           />
         </motion.div>
 
-        <div className="flex max-w-2xl flex-col gap-6 px-6 py-16 sm:px-12">
+        <div className="grid w-full items-center gap-8 px-6 py-14 sm:px-12 lg:grid-cols-[1.1fr_1fr]">
+        <div className="flex max-w-2xl flex-col gap-6">
           <motion.h1
             className="font-heading text-[40px] leading-[1.1] font-bold tracking-[-0.02em] text-white md:text-[60px]"
             initial={{ opacity: 0, y: 30 }}
@@ -78,6 +80,30 @@ export function HeroBanner() {
               Rent Out Your Gear
             </Link>
           </motion.div>
+        </div>
+
+        <motion.div
+          className="relative hidden lg:block"
+          initial={{ opacity: 0, x: 40 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.9, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <HeroArt />
+          <motion.span
+            className="absolute top-6 left-0 rounded-xl border border-white/15 bg-black/50 px-4 py-2 text-sm font-medium text-white backdrop-blur"
+            animate={{ y: [0, -8, 0] }}
+            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+          >
+            Verified owners
+          </motion.span>
+          <motion.span
+            className="absolute right-2 bottom-10 rounded-xl border border-white/15 bg-black/50 px-4 py-2 text-sm font-medium text-white backdrop-blur"
+            animate={{ y: [0, 8, 0] }}
+            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+          >
+            Daily, weekly or monthly
+          </motion.span>
+        </motion.div>
         </div>
       </div>
     </section>
