@@ -64,7 +64,7 @@ export function SiteNavbar() {
 
   return (
     <header className="sticky top-4 z-50 px-4 sm:px-6">
-      <div className="mx-auto flex max-w-7xl items-center justify-between gap-6">
+      <div className="mx-auto flex max-w-[77rem] items-center justify-between gap-6">
         <BrandLogo />
 
         {/* Desktop */}
@@ -140,7 +140,7 @@ export function SiteNavbar() {
       {open ? (
         <div
           id="site-navbar-mobile"
-          className="mx-auto mt-3 flex max-w-7xl flex-col gap-2 rounded-lg border border-white/10 bg-[#1A1A1F] p-4 shadow-xl lg:hidden"
+          className="mx-auto mt-3 flex max-w-[77rem] flex-col gap-2 rounded-lg border border-white/10 bg-[#1A1A1F] p-4 shadow-xl lg:hidden"
         >
           <ul className="flex flex-col">
             {NAV_LINKS.map((link) => (
