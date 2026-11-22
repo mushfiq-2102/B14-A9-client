@@ -9,7 +9,9 @@ import { useRouter, useSearchParams } from "next/navigation"
 export default function SignInContent() {
     const router = useRouter()
     const searchParams = useSearchParams()
-    const redirectTo = searchParams.get("redirectTo") ?? "/"
+    // Only allow in-site paths, never an external URL.
+    const requested = searchParams.get("redirectTo") ?? "/"
+    const redirectTo = requested.startsWith("/") && !requested.startsWith("//") ? requested : "/"
     const [error, setError] = React.useState<string | null>(null)
 
     const handleSignIn = async (data: AuthFormData) => {
