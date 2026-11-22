@@ -4,7 +4,7 @@
 
 import { cn } from "@/lib/utils"
 
-/** Content width: "narrow" (forms) | "wide" (tables/lists). */
+/** Content width: "narrow" (forms) | "wide" (full-width tables/lists/analytics). */
 export function PageContainer({
     width = "narrow",
     children,
@@ -16,7 +16,7 @@ export function PageContainer({
         <div
             className={cn(
                 "mx-auto w-full px-4 py-8",
-                width === "wide" ? "max-w-6xl" : "max-w-3xl",
+                width === "wide" ? "max-w-none sm:px-6 lg:px-8" : "max-w-3xl",
             )}
         >
             {children}
