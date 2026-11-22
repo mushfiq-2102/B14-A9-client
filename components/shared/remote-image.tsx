@@ -40,6 +40,11 @@ export function RemoteImage({
   return (
     // eslint-disable-next-line @next/next/no-img-element
     <img
+      // An image can fail before React hydrates, so onError never fires for it.
+      // Checking the finished-but-empty state on mount catches that case.
+      ref={(img) => {
+        if (img && img.complete && img.naturalWidth === 0) setFailed(true)
+      }}
       src={src}
       alt={alt}
       loading="lazy"
