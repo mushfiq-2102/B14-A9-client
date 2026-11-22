@@ -20,7 +20,7 @@ RentRig is an equipment rental marketplace. Owners list equipment for rent, cust
 
 ## npm packages
 
-`next`, `react`, `react-dom`, `better-auth`, `@better-auth/mongo-adapter`, `mongodb`, `stripe`, `framer-motion`, `recharts`, `@base-ui/react`, `shadcn`, `tailwindcss`, `lucide-react`, `next-themes`, `class-variance-authority`, `clsx`, `tailwind-merge`
+`next`, `react`, `react-dom`, `better-auth`, `@better-auth/mongo-adapter`, `mongodb`, `stripe`, `framer-motion`, `recharts`, `@base-ui/react`, `shadcn`, `tailwindcss`, `lucide-react`, `next-themes`, `class-variance-authority`, `cn`, `tw-animate-css`
 
 ## Environment variables
 
