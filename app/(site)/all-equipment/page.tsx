@@ -1,7 +1,8 @@
 import { Suspense } from "react"
 
 import { EquipmentCard } from "@/components/shared/equipment-card"
-import { getEquipment } from "@/lib/api/equipment"
+import { Pagination } from "@/components/shared/pagination"
+import { getEquipmentPage } from "@/lib/api/equipment"
 
 import { EquipmentFiltersPanel } from "./_components/equipment-filters-panel"
 import { EquipmentSearchBar } from "./_components/equipment-search-bar"
@@ -20,7 +21,13 @@ export default async function AllEquipmentPage({
     for (const key of FILTER_KEYS) {
         if (params[key]) query.set(key, params[key])
     }
-    const items = await getEquipment(query.toString())
+
+    // 9 items per page (3 x 3 grid)
+    const page = Math.max(1, Number(params.page) || 1)
+    query.set("page", String(page))
+    query.set("limit", "9")
+    const { items, total, limit } = await getEquipmentPage(query.toString())
+    const totalPages = Math.ceil(total / limit)
 
     return (
         <div className="mx-auto w-full max-w-7xl px-4 py-10 sm:px-6">
@@ -40,7 +47,7 @@ export default async function AllEquipmentPage({
 
                 <section aria-label="Equipment results">
                     <p className="mb-4 text-sm text-[#A0A0AB]">
-                        {items.length} {items.length === 1 ? "item" : "items"} found
+                        {total} {total === 1 ? "item" : "items"} found
                     </p>
 
                     {items.length === 0 ? (
@@ -54,6 +61,8 @@ export default async function AllEquipmentPage({
                             ))}
                         </div>
                     )}
+
+                    <Pagination page={page} totalPages={totalPages} basePath="/all-equipment" params={params} />
                 </section>
             </div>
         </div>

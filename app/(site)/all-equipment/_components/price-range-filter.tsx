@@ -18,6 +18,7 @@ export function PriceRangeFilter({
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault()
         const params = new URLSearchParams(window.location.search)
+        params.delete("page")
         if (min) params.set("minPrice", min)
         else params.delete("minPrice")
         if (max) params.set("maxPrice", max)

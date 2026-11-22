@@ -33,6 +33,7 @@ export function FilterChecklist({
 
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const params = new URLSearchParams(window.location.search)
+        params.delete("page")
         if (event.target.value) {
             params.set(name, event.target.value)
         } else {

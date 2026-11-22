@@ -3,13 +3,21 @@ import Link from "next/link"
 import { PageContainer, PageHeader } from "@/components/dashboard/page-shell"
 import { TableShell, THead, tdClass } from "@/components/dashboard/table"
 import { BookingStatusPill, PaymentStatusPill } from "@/components/shared/status-pills"
+import { Pagination } from "@/components/shared/pagination"
 import { buttonVariants } from "@/components/ui/button"
 import { getMyBookings } from "@/lib/api/bookings"
 import { formatCurrency, formatDate } from "@/lib/formatters"
 import { cn } from "@/lib/utils"
 
-export default async function MyRentalsPage() {
-    const bookings = await getMyBookings()
+export default async function MyRentalsPage({
+    searchParams,
+}: {
+    searchParams: Promise<{ page?: string }>
+}) {
+    // booking history, 10 rentals per page
+    const page = Math.max(1, Number((await searchParams).page) || 1)
+    const { items: bookings, total, limit } = await getMyBookings(`page=${page}&limit=10`)
+    const totalPages = Math.ceil(total / limit)
 
     return (
         <PageContainer width="wide">
@@ -23,7 +31,7 @@ export default async function MyRentalsPage() {
                 }
             />
 
-            <TableShell empty={bookings.length === 0 ? "You have no rentals yet. Browse equipment to make your first booking." : undefined}>
+            <TableShell empty={total === 0 ? "You have no rentals yet. Browse equipment to make your first booking." : undefined}>
                 <THead
                     columns={[
                         "Equipment name",
@@ -49,6 +57,8 @@ export default async function MyRentalsPage() {
                     ))}
                 </tbody>
             </TableShell>
+
+            <Pagination page={page} totalPages={totalPages} basePath="/dashboard/customer/my-rentals" />
         </PageContainer>
     )
 }

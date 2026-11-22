@@ -14,6 +14,7 @@ export function EquipmentSearchBar() {
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault()
         const params = new URLSearchParams(window.location.search)
+        params.delete("page")
         if (value.trim()) {
             params.set("search", value.trim())
         } else {

@@ -1,13 +1,14 @@
 // Data-access module for the bookings API (Express on :5000).
 'use server'
 import type { BookingQuote, BookingRow } from "@/lib/types/bookings"
+import type { Paginated } from "@/lib/types/pagination"
 import { authFetch } from "@/lib/core/server"
 
 const BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:5000"
 
-// Customer: bookings of the logged in customer.
-export const getMyBookings = async (): Promise<BookingRow[]> => {
-    const res = await authFetch(`${BASE_URL}/bookings`)
+// Customer: one page of the booking history of the logged in customer.
+export const getMyBookings = async (query = ''): Promise<Paginated<BookingRow>> => {
+    const res = await authFetch(`${BASE_URL}/bookings?${query}`)
     return res.json()
 }
 

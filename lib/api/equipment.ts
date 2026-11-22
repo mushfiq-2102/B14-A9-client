@@ -1,12 +1,19 @@
 // Single data-access module for the equipment API (Express on :5000).
 'use server'
 import type { EquipmentFormData, EquipmentRow, EquipmentStatus } from "@/lib/types/equipment"
+import type { Paginated } from "@/lib/types/pagination"
 import { authFetch, protectedMutation } from "@/lib/core/server"
 
 const BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:5000"
 
 // Public: approved equipment, filtered / sorted by the server from the query string.
 export const getEquipment = async (query = ''): Promise<EquipmentRow[]> => {
+    const res = await fetch(`${BASE_URL}/equipment?${query}`, { cache: "no-store" })
+    return res.json()
+}
+
+// Public: one page of approved equipment (query holds the filters plus page and limit).
+export const getEquipmentPage = async (query = ''): Promise<Paginated<EquipmentRow>> => {
     const res = await fetch(`${BASE_URL}/equipment?${query}`, { cache: "no-store" })
     return res.json()
 }
