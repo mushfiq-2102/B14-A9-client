@@ -5,6 +5,7 @@ import * as React from "react"
 import { AuthForm, AuthFormData } from "@/components/auth-form"
 import { toast } from "@/components/ui/toast"
 import { authClient } from "@/lib/auth-client"
+import { withLoginFlag } from "@/lib/auth-redirect"
 import { useRouter } from 'next/navigation'
 
 export default function SignUpPage() {
@@ -43,7 +44,7 @@ export default function SignUpPage() {
     const handleGoogle = async () => {
         await authClient.signIn.social({
             provider: "google",
-            callbackURL: "/",
+            callbackURL: withLoginFlag("/"),
         })
     }
 

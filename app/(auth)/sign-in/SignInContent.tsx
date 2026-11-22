@@ -4,14 +4,13 @@ import * as React from "react"
 import { AuthForm, AuthFormData } from "@/components/auth-form"
 import { toast } from "@/components/ui/toast"
 import { authClient } from "@/lib/auth-client"
+import { safeRedirectPath, withLoginFlag } from "@/lib/auth-redirect"
 import { useRouter, useSearchParams } from "next/navigation"
 
 export default function SignInContent() {
     const router = useRouter()
     const searchParams = useSearchParams()
-    // Only allow in-site paths, never an external URL.
-    const requested = searchParams.get("redirectTo") ?? "/"
-    const redirectTo = requested.startsWith("/") && !requested.startsWith("//") ? requested : "/"
+    const redirectTo = safeRedirectPath(searchParams.get("redirectTo"))
     const [error, setError] = React.useState<string | null>(null)
 
     const handleSignIn = async (data: AuthFormData) => {
@@ -41,7 +40,7 @@ export default function SignInContent() {
     const handleGoogle = async () => {
         await authClient.signIn.social({
             provider: "google",
-            callbackURL: redirectTo,
+            callbackURL: withLoginFlag(redirectTo),
         })
     }
 

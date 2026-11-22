@@ -1,7 +1,9 @@
 import type { Metadata } from "next"
+import { Suspense } from "react"
 import { Geist, Geist_Mono, Manrope } from "next/font/google"
 
 import "./globals.css"
+import { AuthToast } from "@/components/auth-toast"
 import { ThemeProvider } from "@/components/theme-provider"
 import { Toaster } from "@/components/ui/toast"
 import { cn } from "@/lib/utils"
@@ -45,6 +47,9 @@ export default function RootLayout({
         <ThemeProvider>
           {children}
           <Toaster />
+          <Suspense fallback={null}>
+            <AuthToast />
+          </Suspense>
         </ThemeProvider>
       </body>
     </html>
