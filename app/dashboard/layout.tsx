@@ -2,6 +2,7 @@ import { redirect } from "next/navigation"
 
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
 import { getSession } from "@/lib/core/server"
+import type { UserRole } from "@/lib/types/users"
 import { DashboardSidebar } from "../components/DashboardSidebar"
 
 const DashboardLayout = async ({ children }: { children: React.ReactNode }) => {
@@ -13,7 +14,13 @@ const DashboardLayout = async ({ children }: { children: React.ReactNode }) => {
 
     return (
         <SidebarProvider>
-            <DashboardSidebar></DashboardSidebar>
+            <DashboardSidebar
+                user={{
+                    name: session.user.name,
+                    image: session.user.image,
+                    role: (session.user.role as UserRole) || "customer",
+                }}
+            />
             <main className="min-w-0 flex-1">
                 <SidebarTrigger />
                 {children}

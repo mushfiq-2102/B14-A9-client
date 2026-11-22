@@ -10,7 +10,6 @@ import {
     SidebarMenuButton,
     SidebarMenuItem,
 } from "@/components/ui/sidebar"
-import { useSession } from "@/lib/auth-client"
 import { ROLE_META, type UserRole } from "@/lib/types/users"
 import { UserAvatar } from "@/components/shared/user-avatar"
 import { BrandLogo } from "@/components/shared/brand-logo"
@@ -61,9 +60,13 @@ const menuItemsByRole: Record<UserRole, MenuItem[]> = {
 }
 
 
-export function DashboardSidebar() {
-    const { data: session, isPending } = useSession();
-    const role: UserRole = session?.user?.role || 'customer';
+// The role and user come from the server layout, so the right menu shows on first paint (also after a reload).
+export function DashboardSidebar({
+    user,
+}: {
+    user: { name: string; image?: string | null; role: UserRole }
+}) {
+    const role = user.role;
 
     return (
         <Sidebar>
@@ -74,13 +77,13 @@ export function DashboardSidebar() {
                 {/* Signed-in user: avatar + name + role */}
                 <div className="flex items-center gap-2.5 px-2 py-1.5">
                     <UserAvatar
-                        src={session?.user?.image}
-                        name={session?.user?.name}
+                        src={user.image}
+                        name={user.name}
                         className="size-9"
                     />
                     <div className="flex min-w-0 flex-col">
                         <span className="truncate text-sm font-medium text-[#EDEDEF]">
-                            {isPending ? "…" : session?.user?.name}
+                            {user.name}
                         </span>
                         <span className="truncate text-xs text-[#6E6E78]">
                             {ROLE_META[role].label}
