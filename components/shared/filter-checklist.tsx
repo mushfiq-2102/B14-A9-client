@@ -45,14 +45,14 @@ export function FilterChecklist({
 
     return (
         <fieldset className="flex flex-col gap-2">
-            <legend className="text-base font-semibold tracking-[-0.02em] text-[#EDEDEF]">
+            <legend className="text-base font-semibold tracking-[-0.02em] text-ink">
                 {legend}
             </legend>
             <div className="flex flex-col gap-1">
                 {options.map((option) => (
                     <label
                         key={option.value}
-                        className="flex cursor-pointer items-center gap-3 py-1 text-[13px] font-medium text-[#A0A0AB] transition-colors capitalize hover:text-[#EDEDEF] has-[:checked]:text-[#EDEDEF]"
+                        className="flex cursor-pointer items-center gap-3 py-1 text-[13px] font-medium text-ink-soft transition-colors capitalize hover:text-ink has-[:checked]:text-ink"
                     >
                         <input
                             type="radio"
@@ -64,7 +64,7 @@ export function FilterChecklist({
                         />
                         <span
                             aria-hidden
-                            className="pointer-events-none flex size-5 shrink-0 items-center justify-center rounded-[4px] border border-white/10 bg-[#1A1A1F] text-transparent transition-colors peer-checked:border-[#F97316] peer-checked:bg-[#F97316] peer-checked:text-[#1A0F05] peer-focus-visible:ring-2 peer-focus-visible:ring-[#F97316]/60"
+                            className="pointer-events-none flex size-5 shrink-0 items-center justify-center rounded-[4px] border border-line bg-panel text-transparent transition-colors peer-checked:border-[#F97316] peer-checked:bg-[#F97316] peer-checked:text-[#1A0F05] peer-focus-visible:ring-2 peer-focus-visible:ring-[#F97316]/60"
                         >
                             <Check className="size-3" strokeWidth={3} />
                         </span>

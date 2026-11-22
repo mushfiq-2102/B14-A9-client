@@ -17,8 +17,8 @@ export function StatCard({
                 <Icon aria-hidden className="size-5" />
             </span>
             <div className="min-w-0">
-                <dt className="truncate text-[13px] text-[#A0A0AB]">{label}</dt>
-                <dd className="mt-1 text-[26px] leading-8 font-semibold text-[#EDEDEF]">
+                <dt className="truncate text-[13px] text-ink-soft">{label}</dt>
+                <dd className="mt-1 text-[26px] leading-8 font-semibold text-ink">
                     {value}
                 </dd>
             </div>

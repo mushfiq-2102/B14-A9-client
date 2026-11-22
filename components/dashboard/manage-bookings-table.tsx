@@ -43,24 +43,24 @@ export function ManageBookingsTable({
             <THead columns={columns} />
             <tbody>
                 {bookings.map((booking) => (
-                    <tr key={booking._id} className="border-b border-white/5 last:border-0">
+                    <tr key={booking._id} className="border-b border-line-soft last:border-0">
                         <td className={tdClass}>
                             <p className="font-medium">{booking.customerName}</p>
-                            <p className="text-xs text-[#A0A0AB]">{booking.customerEmail}</p>
+                            <p className="text-xs text-ink-soft">{booking.customerEmail}</p>
                             {variant === "owner" ? (
-                                <p className="text-xs text-[#A0A0AB]">{booking.contactNumber}</p>
+                                <p className="text-xs text-ink-soft">{booking.contactNumber}</p>
                             ) : null}
                         </td>
                         {variant === "owner" ? (
                             <td className={tdClass}>
                                 <p className="font-medium">{booking.equipmentName}</p>
-                                <p className="max-w-48 truncate text-xs text-[#A0A0AB]">{booking.deliveryAddress}</p>
+                                <p className="max-w-48 truncate text-xs text-ink-soft">{booking.deliveryAddress}</p>
                             </td>
                         ) : (
                             <>
                                 <td className={tdClass}>
                                     <p className="font-medium">{booking.ownerName}</p>
-                                    <p className="text-xs text-[#A0A0AB]">{booking.ownerEmail}</p>
+                                    <p className="text-xs text-ink-soft">{booking.ownerEmail}</p>
                                 </td>
                                 <td className={cn(tdClass, "font-medium")}>{booking.equipmentName}</td>
                             </>

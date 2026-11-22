@@ -21,12 +21,12 @@ export function BookingStatusSelect({
             value={value}
             onChange={(event) => onChange(event.target.value as BookingStatus)}
             className={cn(
-                "surface-field h-9 rounded-md px-2.5 text-[13px] text-[#EDEDEF]",
+                "surface-field h-9 rounded-md px-2.5 text-[13px] text-ink",
                 className,
             )}
         >
             {BOOKING_STATUSES.map((status) => (
-                <option key={status} value={status} className="bg-[#1A1A1F]">
+                <option key={status} value={status} className="bg-panel">
                     {BOOKING_STATUS_META[status].label}
                 </option>
             ))}

@@ -7,7 +7,7 @@ import { BrandLogo } from "@/components/shared/brand-logo"
 // card contents only.
 export default function AuthLayout({ children }: { children: ReactNode }) {
   return (
-    <div className="relative min-h-svh overflow-hidden bg-[#0B0D10] text-white">
+    <div className="relative min-h-svh overflow-hidden bg-deep text-strong">
       {/* Ambient orange glow behind the card */}
       <div
         aria-hidden

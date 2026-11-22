@@ -42,7 +42,7 @@ export function UsersTable({ users }: { users: readonly UserRow[] }) {
             <THead columns={["Name", "Email", "Role", "Registration date", "Change role", "Manage"]} />
             <tbody>
                 {users.map((user) => (
-                    <tr key={user._id} className="border-b border-white/5 last:border-0">
+                    <tr key={user._id} className="border-b border-line-soft last:border-0">
                         <td className={tdClass}>
                             <div className="flex items-center gap-3">
                                 <UserAvatar src={user.image} name={user.name} className="size-8" />

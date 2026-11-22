@@ -36,8 +36,8 @@ export function HowItWorks() {
             <span className="brand-chip flex size-9 items-center justify-center rounded-lg text-base font-semibold">
               {index + 1}
             </span>
-            <h3 className="font-heading text-lg font-semibold text-[#EDEDEF]">{step.title}</h3>
-            <p className="text-sm leading-6 text-[#A0A0AB]">{step.text}</p>
+            <h3 className="font-heading text-lg font-semibold text-ink">{step.title}</h3>
+            <p className="text-sm leading-6 text-ink-soft">{step.text}</p>
           </motion.li>
         ))}
       </motion.ol>

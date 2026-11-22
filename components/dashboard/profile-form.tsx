@@ -46,7 +46,7 @@ export function ProfileForm({ user }: { user: UserRow }) {
             <div className="flex items-center justify-between gap-3">
                 <ImageUploadField allowUrl value={values.image} onChange={(url) => setValues((prev) => ({ ...prev, image: url }))} />
             </div>
-            <div className="flex items-center gap-2 text-sm text-[#A0A0AB]">
+            <div className="flex items-center gap-2 text-sm text-ink-soft">
                 Account role: <RolePill role={user.role} />
             </div>
 

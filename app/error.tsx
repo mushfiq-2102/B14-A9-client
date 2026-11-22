@@ -15,7 +15,7 @@ export default function ErrorPage({
         <main className="flex min-h-svh flex-col items-center justify-center gap-4 px-4 text-center">
             <TriangleAlert aria-hidden className="size-12 text-[#F97316]" />
             <h1 className="page-title">Something went wrong</h1>
-            <p className="max-w-md text-white/70">
+            <p className="max-w-md text-ink-2">
                 The page could not be loaded. Try again, and if the problem stays, come back in a few minutes.
             </p>
             <Button onClick={reset} className="btn-brand h-11 px-5">

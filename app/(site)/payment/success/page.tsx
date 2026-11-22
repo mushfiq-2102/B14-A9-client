@@ -33,7 +33,7 @@ export default async function PaymentSuccessPage({
             <div className="mx-auto flex max-w-xl flex-col items-center gap-4 px-4 py-24 text-center">
                 <CircleAlert aria-hidden className="size-12 text-[#F97316]" />
                 <h1 className="page-title">Payment not completed</h1>
-                <p className="text-white/70">
+                <p className="text-ink-2">
                     {result?.message ?? "Your payment was not completed, so no booking was created."}
                 </p>
                 <Link href="/all-equipment" className={cn(buttonVariants(), "btn-brand h-11 px-5")}>
@@ -56,7 +56,7 @@ export default async function PaymentSuccessPage({
             <CircleCheck aria-hidden className="size-14 text-[#22C55E]" />
             <div className="flex flex-col gap-2">
                 <h1 className="page-title">Payment successful</h1>
-                <p className="text-white/70">
+                <p className="text-ink-2">
                     Your booking is confirmed and saved to your rentals.
                 </p>
             </div>
@@ -64,8 +64,8 @@ export default async function PaymentSuccessPage({
             <dl className="surface-card flex w-full flex-col gap-3 p-6 text-sm">
                 {rows.map((row) => (
                     <div key={row.label} className="flex justify-between gap-6">
-                        <dt className="text-[#A0A0AB]">{row.label}</dt>
-                        <dd className="font-medium text-[#EDEDEF]">{row.value}</dd>
+                        <dt className="text-ink-soft">{row.label}</dt>
+                        <dd className="font-medium text-ink">{row.value}</dd>
                     </div>
                 ))}
             </dl>

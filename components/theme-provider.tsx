@@ -3,7 +3,7 @@
 import * as React from "react"
 import { ThemeProvider as NextThemesProvider } from "next-themes"
 
-// The dashboard and public pages are designed for one dark theme.
+// Dark (default) and light theme. next-themes remembers the choice in localStorage.
 function ThemeProvider({
   children,
   ...props
@@ -12,7 +12,7 @@ function ThemeProvider({
     <NextThemesProvider
       attribute="class"
       defaultTheme="dark"
-      forcedTheme="dark"
+      enableSystem={false}
       disableTransitionOnChange
       {...props}
     >

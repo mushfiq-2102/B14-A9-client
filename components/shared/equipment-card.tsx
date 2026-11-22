@@ -29,21 +29,21 @@ export function EquipmentCard({ item }: { item: EquipmentRow }) {
                     <AvailabilityPill available={isAvailable(item)} />
                 </div>
 
-                <h3 className="line-clamp-1 font-heading text-lg font-semibold text-[#EDEDEF]">
+                <h3 className="line-clamp-1 font-heading text-lg font-semibold text-ink">
                     {item.name}
                 </h3>
 
-                <p className="flex items-center gap-1.5 text-sm text-[#A0A0AB]">
+                <p className="flex items-center gap-1.5 text-sm text-ink-soft">
                     <MapPin aria-hidden className="size-4 shrink-0" />
                     <span className="truncate">{item.location}</span>
                 </p>
 
                 <div className="mt-auto flex items-end justify-between gap-3 pt-2">
                     <div>
-                        <p className="text-xl font-semibold text-white">
+                        <p className="text-xl font-semibold text-strong">
                             {formatRate(item.rentalPrice, item.rentalType)}
                         </p>
-                        <p className="text-xs text-[#6E6E78] capitalize">
+                        <p className="text-xs text-ink-faint capitalize">
                             {item.rentalType} rental
                         </p>
                     </div>

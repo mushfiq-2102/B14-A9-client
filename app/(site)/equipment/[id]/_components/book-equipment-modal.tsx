@@ -183,13 +183,13 @@ export function BookEquipmentModal({ item }: { item: EquipmentRow }) {
                         />
                     </Field>
 
-                    <div className="flex items-center justify-between rounded-lg border border-white/10 bg-[#141418] px-4 py-3">
-                        <span className="text-sm text-[#A0A0AB]">
+                    <div className="flex items-center justify-between rounded-lg border border-line bg-panel-2 px-4 py-3">
+                        <span className="text-sm text-ink-soft">
                             {preview.units > 0
                                 ? `${preview.days} day(s) = ${preview.units} ${item.rentalType} unit(s)`
                                 : "Select dates to see the total"}
                         </span>
-                        <span className="text-xl font-semibold text-white">
+                        <span className="text-xl font-semibold text-strong">
                             {formatCurrency(preview.totalAmount)}
                         </span>
                     </div>

@@ -39,8 +39,8 @@ const COPY = {
 } as const
 
 const inputClass =
-  "h-12 w-full rounded-lg border surface-field pl-10 pr-3 text-base tracking-[-0.0125rem] text-[#EDEDEF] shadow-[inset_0_3px_10px_rgba(255,255,255,0.04)] outline-none transition-colors placeholder:text-white/60 focus:ring-2 focus:ring-[#F97316]/30"
-const labelClass = "mb-2 block text-left text-sm text-[#EDEDEF]/80"
+  "h-12 w-full rounded-lg border surface-field pl-10 pr-3 text-base tracking-[-0.0125rem] text-ink shadow-[inset_0_3px_10px_rgba(255,255,255,0.04)] outline-none transition-colors placeholder:text-ink-soft focus:ring-2 focus:ring-[#F97316]/30"
+const labelClass = "mb-2 block text-left text-sm text-ink-2"
 
 /** Password rule: an uppercase letter, a lowercase letter and at least 6 characters. */
 export const getPasswordError = (password: string) => {
@@ -115,7 +115,7 @@ export function AuthForm({
     <div className="surface-card w-full p-8">
       <div className="mb-8 flex flex-col gap-2 text-center">
         <h1 className="page-title">{copy.title}</h1>
-        <p className="text-base leading-[1.6] text-white/70">{copy.subtitle}</p>
+        <p className="text-base leading-[1.6] text-ink-2">{copy.subtitle}</p>
       </div>
 
       <form onSubmit={handleSubmit} className="flex flex-col gap-5">
@@ -127,7 +127,7 @@ export function AuthForm({
             <div className="relative">
               <User
                 aria-hidden
-                className="pointer-events-none absolute top-1/2 left-3 size-5 -translate-y-1/2 text-white/50"
+                className="pointer-events-none absolute top-1/2 left-3 size-5 -translate-y-1/2 text-ink-soft"
               />
               <input
                 id="name"
@@ -153,7 +153,7 @@ export function AuthForm({
           <div className="relative">
             <Mail
               aria-hidden
-              className="pointer-events-none absolute top-1/2 left-3 size-5 -translate-y-1/2 text-white/50"
+              className="pointer-events-none absolute top-1/2 left-3 size-5 -translate-y-1/2 text-ink-soft"
             />
             <input
               id="email"
@@ -187,7 +187,7 @@ export function AuthForm({
           <div className="relative">
             <Lock
               aria-hidden
-              className="pointer-events-none absolute top-1/2 left-3 size-5 -translate-y-1/2 text-white/50"
+              className="pointer-events-none absolute top-1/2 left-3 size-5 -translate-y-1/2 text-ink-soft"
             />
             <input
               id="password"
@@ -207,7 +207,7 @@ export function AuthForm({
               type="button"
               onClick={() => setShowPassword((v) => !v)}
               aria-label={showPassword ? "Hide password" : "Show password"}
-              className="absolute top-1/2 right-2 -translate-y-1/2 rounded-md p-1.5 text-white/50 transition-colors hover:text-white"
+              className="absolute top-1/2 right-2 -translate-y-1/2 rounded-md p-1.5 text-ink-soft transition-colors hover:text-strong"
             >
               {showPassword ? (
                 <EyeOff aria-hidden className="size-4" />
@@ -225,16 +225,16 @@ export function AuthForm({
           {copy.submitLabel}
         </button>
 
-        <div className="flex items-center gap-3 text-sm text-white/50">
-          <span aria-hidden className="h-px flex-1 bg-white/10" />
+        <div className="flex items-center gap-3 text-sm text-ink-soft">
+          <span aria-hidden className="h-px flex-1 bg-hover-strong" />
           or
-          <span aria-hidden className="h-px flex-1 bg-white/10" />
+          <span aria-hidden className="h-px flex-1 bg-hover-strong" />
         </div>
 
         <button
           type="button"
           onClick={onGoogle}
-          className="flex h-[52px] w-full items-center justify-center gap-3 rounded-[8px] border border-white/10 bg-[#1A1A1F] text-base font-medium text-[#EDEDEF] transition-colors hover:border-white/25"
+          className="flex h-[52px] w-full items-center justify-center gap-3 rounded-[8px] border border-line bg-panel text-base font-medium text-ink transition-colors hover:border-line-strong"
         >
           <GoogleIcon />
           Continue with Google
@@ -250,11 +250,11 @@ export function AuthForm({
         ) : null}
       </form>
 
-      <p className="mt-8 text-center text-base text-white/70">
+      <p className="mt-8 text-center text-base text-ink-2">
         {copy.footer}{" "}
         <Link
           href={copy.footerLinkHref}
-          className="font-semibold text-[#FDBA74] transition-colors hover:text-white"
+          className="font-semibold text-accent-ink transition-colors hover:text-strong"
         >
           {copy.footerLinkLabel}
         </Link>

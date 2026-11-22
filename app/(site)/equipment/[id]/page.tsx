@@ -48,21 +48,21 @@ export default async function EquipmentDetailsPage({
                     <RemoteImage
                         src={item.image}
                         alt={item.name}
-                        className="aspect-[4/3] w-full rounded-2xl border border-white/10 object-cover"
+                        className="aspect-[4/3] w-full rounded-2xl border border-line object-cover"
                     />
 
                     <section className="surface-card p-6">
-                        <h2 className="mb-3 font-heading text-lg font-semibold text-white">Description</h2>
-                        <p className="text-sm leading-6 whitespace-pre-line text-[#EDEDEF]/80">
+                        <h2 className="mb-3 font-heading text-lg font-semibold text-strong">Description</h2>
+                        <p className="text-sm leading-6 whitespace-pre-line text-ink-2">
                             {item.description}
                         </p>
                     </section>
 
                     <section className="surface-card p-6">
-                        <h2 className="mb-3 font-heading text-lg font-semibold text-white">
+                        <h2 className="mb-3 font-heading text-lg font-semibold text-strong">
                             Rental terms and conditions
                         </h2>
-                        <p className="text-sm leading-6 whitespace-pre-line text-[#EDEDEF]/80">
+                        <p className="text-sm leading-6 whitespace-pre-line text-ink-2">
                             {item.rentalTerms || "No special terms provided by the owner."}
                         </p>
                     </section>
@@ -77,11 +77,11 @@ export default async function EquipmentDetailsPage({
                             <AvailabilityPill available={isAvailable(item)} />
                         </div>
                         <h1 className="page-title">{item.name}</h1>
-                        <p className="flex items-center gap-1.5 text-sm text-[#A0A0AB]">
+                        <p className="flex items-center gap-1.5 text-sm text-ink-soft">
                             <MapPin aria-hidden className="size-4" />
                             {item.location}
                         </p>
-                        <p className="text-3xl font-semibold text-white">
+                        <p className="text-3xl font-semibold text-strong">
                             {formatRate(item.rentalPrice, item.rentalType)}
                         </p>
 
@@ -91,19 +91,19 @@ export default async function EquipmentDetailsPage({
                                 <FavoriteButton equipmentId={item._id} isFavorite={isFavorite} />
                             </div>
                         ) : (
-                            <p className="rounded-lg border border-white/10 bg-[#141418] px-4 py-3 text-sm text-[#A0A0AB]">
+                            <p className="rounded-lg border border-line bg-panel-2 px-4 py-3 text-sm text-ink-soft">
                                 Only customer accounts can book or save equipment.
                             </p>
                         )}
                     </section>
 
                     <section className="surface-card p-6">
-                        <h2 className="mb-4 font-heading text-lg font-semibold text-white">Equipment details</h2>
+                        <h2 className="mb-4 font-heading text-lg font-semibold text-strong">Equipment details</h2>
                         <dl className="grid grid-cols-2 gap-4">
                             {specs.map((spec) => (
                                 <div key={spec.label}>
-                                    <dt className="text-xs text-[#6E6E78]">{spec.label}</dt>
-                                    <dd className="mt-1 text-sm font-medium text-[#EDEDEF] capitalize">
+                                    <dt className="text-xs text-ink-faint">{spec.label}</dt>
+                                    <dd className="mt-1 text-sm font-medium text-ink capitalize">
                                         {spec.value || "-"}
                                     </dd>
                                 </div>
@@ -112,19 +112,19 @@ export default async function EquipmentDetailsPage({
                     </section>
 
                     <section className="surface-card p-6">
-                        <h2 className="mb-4 font-heading text-lg font-semibold text-white">Owner information</h2>
-                        <ul className="flex flex-col gap-3 text-sm text-[#EDEDEF]/85">
+                        <h2 className="mb-4 font-heading text-lg font-semibold text-strong">Owner information</h2>
+                        <ul className="flex flex-col gap-3 text-sm text-ink-2">
                             <li className="flex items-center gap-2">
-                                <UserRound aria-hidden className="size-4 text-[#A0A0AB]" />
+                                <UserRound aria-hidden className="size-4 text-ink-soft" />
                                 {item.ownerName}
                             </li>
                             <li className="flex items-center gap-2">
-                                <Mail aria-hidden className="size-4 text-[#A0A0AB]" />
+                                <Mail aria-hidden className="size-4 text-ink-soft" />
                                 {item.ownerEmail}
                             </li>
                             {item.ownerPhone ? (
                                 <li className="flex items-center gap-2">
-                                    <Phone aria-hidden className="size-4 text-[#A0A0AB]" />
+                                    <Phone aria-hidden className="size-4 text-ink-soft" />
                                     {item.ownerPhone}
                                 </li>
                             ) : null}

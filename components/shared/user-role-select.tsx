@@ -21,12 +21,12 @@ export function UserRoleSelect({
             value={value}
             onChange={(event) => onChange(event.target.value as UserRole)}
             className={cn(
-                "surface-field h-8 rounded-md px-2.5 text-xs text-[#EDEDEF]",
+                "surface-field h-8 rounded-md px-2.5 text-xs text-ink",
                 className,
             )}
         >
             {USER_ROLES.map((role) => (
-                <option key={role} value={role} className="bg-[#1A1A1F]">
+                <option key={role} value={role} className="bg-panel">
                     Make {ROLE_META[role].label}
                 </option>
             ))}

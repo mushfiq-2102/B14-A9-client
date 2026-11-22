@@ -46,10 +46,10 @@ export function CategoriesSection() {
                 <Icon aria-hidden className="size-7" />
               </span>
               <span className="flex min-w-0 flex-col gap-1">
-                <span className="font-heading text-lg font-semibold text-[#EDEDEF]">
+                <span className="font-heading text-lg font-semibold text-ink">
                   {name}
                 </span>
-                <span className="text-sm text-[#A0A0AB]">{note}</span>
+                <span className="text-sm text-ink-soft">{note}</span>
               </span>
             </Link>
           </motion.div>

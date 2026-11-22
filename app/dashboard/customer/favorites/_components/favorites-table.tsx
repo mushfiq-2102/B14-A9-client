@@ -29,7 +29,7 @@ export function FavoritesTable({ favorites }: { favorites: FavoriteRow[] }) {
             <THead columns={["Equipment", "Category", "Rental price", "Location", "Actions"]} />
             <tbody>
                 {favorites.map((favorite) => (
-                    <tr key={favorite._id} className="border-b border-white/5 last:border-0">
+                    <tr key={favorite._id} className="border-b border-line-soft last:border-0">
                         <td className={tdClass}>
                             <div className="flex items-center gap-3">
                                 <RemoteImage src={favorite.image} alt={favorite.name} className="size-11 rounded-lg object-cover" />

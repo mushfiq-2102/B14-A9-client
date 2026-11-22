@@ -39,8 +39,8 @@ export function EquipmentFiltersPanel({
             className="surface-card flex h-fit flex-col gap-6 p-5 lg:sticky lg:top-28"
         >
             <div className="flex items-center justify-between">
-                <h2 className="font-heading text-lg font-semibold text-white">Filters</h2>
-                <Link href={BASE_PATH} className="text-sm text-[#FDBA74] hover:text-white">
+                <h2 className="font-heading text-lg font-semibold text-strong">Filters</h2>
+                <Link href={BASE_PATH} className="text-sm text-accent-ink hover:text-strong">
                     Clear all
                 </Link>
             </div>

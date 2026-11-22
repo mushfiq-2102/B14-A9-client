@@ -30,7 +30,7 @@ export default async function PaymentPage({
         return (
             <div className="mx-auto flex max-w-xl flex-col items-center gap-4 px-4 py-24 text-center">
                 <h1 className="page-title">Booking unavailable</h1>
-                <p className="text-white/70">
+                <p className="text-ink-2">
                     {"message" in quote
                         ? quote.message
                         : "This equipment is not available for the selected dates."}
@@ -59,7 +59,7 @@ export default async function PaymentPage({
         <div className="mx-auto w-full max-w-2xl px-4 py-12">
             <header className="mb-8 flex flex-col gap-2">
                 <h1 className="page-title">Payment</h1>
-                <p className="text-sm text-white/60">
+                <p className="text-sm text-ink-soft">
                     Review your booking, then pay securely with Stripe.
                 </p>
             </header>
@@ -68,13 +68,13 @@ export default async function PaymentPage({
                 <dl className="flex flex-col gap-4">
                     {rows.map((row) => (
                         <div key={row.label} className="flex justify-between gap-6 text-sm">
-                            <dt className="text-[#A0A0AB]">{row.label}</dt>
-                            <dd className="text-right font-medium text-[#EDEDEF]">{row.value}</dd>
+                            <dt className="text-ink-soft">{row.label}</dt>
+                            <dd className="text-right font-medium text-ink">{row.value}</dd>
                         </div>
                     ))}
-                    <div className="mt-2 flex items-center justify-between border-t border-white/10 pt-4">
-                        <dt className="text-base text-[#EDEDEF]">Total amount</dt>
-                        <dd className="text-2xl font-semibold text-white">{formatCurrency(quote.totalAmount)}</dd>
+                    <div className="mt-2 flex items-center justify-between border-t border-line pt-4">
+                        <dt className="text-base text-ink">Total amount</dt>
+                        <dd className="text-2xl font-semibold text-strong">{formatCurrency(quote.totalAmount)}</dd>
                     </div>
                 </dl>
 

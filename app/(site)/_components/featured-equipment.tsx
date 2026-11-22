@@ -28,7 +28,7 @@ export function FeaturedEquipment({ items }: { items: EquipmentRow[] }) {
       </motion.div>
 
       {items.length === 0 ? (
-        <p className="surface-card p-10 text-center text-sm text-[#6E6E78]">
+        <p className="surface-card p-10 text-center text-sm text-ink-faint">
           No equipment has been approved yet. Check back soon.
         </p>
       ) : (

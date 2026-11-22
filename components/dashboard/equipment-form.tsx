@@ -25,7 +25,7 @@ import {
 } from "@/lib/types/equipment"
 
 const selectClass =
-    "surface-field h-11 w-full rounded-lg px-3 text-sm text-[#EDEDEF] capitalize"
+    "surface-field h-11 w-full rounded-lg px-3 text-sm text-ink capitalize"
 
 const emptyValues: EquipmentFormData = {
     name: "",
@@ -138,7 +138,7 @@ export function EquipmentForm({
                     <Field label="Category" htmlFor="category" required>
                         <select id="category" value={values.category} onChange={setText("category")} className={selectClass}>
                             {EQUIPMENT_CATEGORIES.map((category) => (
-                                <option key={category} value={category} className="bg-[#1A1A1F]">{category}</option>
+                                <option key={category} value={category} className="bg-panel">{category}</option>
                             ))}
                         </select>
                     </Field>
@@ -154,7 +154,7 @@ export function EquipmentForm({
                     <Field label="Equipment condition" htmlFor="condition" required>
                         <select id="condition" value={values.condition} onChange={setText("condition")} className={selectClass}>
                             {EQUIPMENT_CONDITIONS.map((condition) => (
-                                <option key={condition} value={condition} className="bg-[#1A1A1F]">{condition}</option>
+                                <option key={condition} value={condition} className="bg-panel">{condition}</option>
                             ))}
                         </select>
                     </Field>
@@ -182,7 +182,7 @@ export function EquipmentForm({
                             className={selectClass}
                         >
                             {RENTAL_TYPES.map((type) => (
-                                <option key={type} value={type} className="bg-[#1A1A1F]">{type}</option>
+                                <option key={type} value={type} className="bg-panel">{type}</option>
                             ))}
                         </select>
                     </Field>

@@ -5,6 +5,21 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
+    --color-ink: var(--ink);
+    --color-ink-2: var(--ink-2);
+    --color-ink-soft: var(--ink-soft);
+    --color-ink-faint: var(--ink-faint);
+    --color-strong: var(--strong);
+    --color-line: var(--line);
+    --color-line-soft: var(--line-soft);
+    --color-line-strong: var(--line-strong);
+    --color-hover-soft: var(--hover-soft);
+    --color-hover-strong: var(--hover-strong);
+    --color-panel: var(--panel);
+    --color-panel-2: var(--panel-2);
+    --color-surface: var(--surface);
+    --color-deep: var(--deep);
+    --color-accent-ink: var(--accent-ink);
     --font-heading: var(--font-manrope);
     --font-sans: var(--font-sans);
         --color-sidebar-ring: var(--sidebar-ring);
@@ -137,12 +152,13 @@
    Unlayered so it wins over shadcn component base utilities (e.g. the Input's
    own dark:bg-input/30); nothing overrides a field's colors per-element. */
 .surface-field {
-  @apply border-white/10 bg-[#1A1A1F] focus:border-[#F97316]/60 focus-visible:border-[#F97316]/60 aria-invalid:border-destructive/60;
+  @apply border-line bg-panel focus:border-[#F97316]/60 focus-visible:border-[#F97316]/60 aria-invalid:border-destructive/60;
 }
 
 /* Card/section surface (auth card, form sections, table wrapper). */
 .surface-card {
-  @apply rounded-2xl border border-white/10 bg-[#101010]/95 shadow-[inset_0_3px_10px_rgba(255,255,255,0.04)];
+  @apply rounded-2xl border border-line bg-surface/95;
+  box-shadow: var(--card-shadow);
 }
 
 /* Brand (primary) action button. */
@@ -152,15 +168,56 @@
 
 /* Dashboard page H1 (Manrope via --font-heading). */
 .page-title {
-  @apply font-heading text-[28px] leading-[1.15] font-bold tracking-[-0.02em] text-white;
+  @apply font-heading text-[28px] leading-[1.15] font-bold tracking-[-0.02em] text-strong;
 }
 
 
 /* Brand chip (numbered section bullets, stat icons, category pills). */
 .brand-chip {
-  @apply bg-[#F97316]/15 text-[#FDBA74];
+  @apply bg-[#F97316]/15 text-accent-ink;
 }
 /* Section H2 on the public pages — same size and weight in every section. */
 .section-title {
-  @apply font-heading text-[32px] leading-[1.15] font-bold tracking-[-0.02em] text-white md:text-[40px];
+  @apply font-heading text-[32px] leading-[1.15] font-bold tracking-[-0.02em] text-strong md:text-[40px];
+}
+
+/* Theme colors. The dark values are the original look, the light values are the light theme. */
+:root {
+  --background: #f4f5f7;
+  --ink: #0f172a;
+  --ink-2: #334155;
+  --ink-soft: #475569;
+  --ink-faint: #64748b;
+  --strong: #0b1220;
+  --line: rgba(15, 23, 42, 0.12);
+  --line-soft: rgba(15, 23, 42, 0.07);
+  --line-strong: rgba(15, 23, 42, 0.28);
+  --hover-soft: rgba(15, 23, 42, 0.05);
+  --hover-strong: rgba(15, 23, 42, 0.1);
+  --panel: #eef1f5;
+  --panel-2: #f6f7f9;
+  --surface: #ffffff;
+  --deep: #eceff3;
+  --accent-ink: #c2410c;
+  --card-shadow: 0 1px 3px rgba(15, 23, 42, 0.08);
+}
+
+.dark {
+  --background: oklch(0.16 0.006 255);
+  --ink: #ededef;
+  --ink-2: #cfcfd6;
+  --ink-soft: #a0a0ab;
+  --ink-faint: #6e6e78;
+  --strong: #ffffff;
+  --line: rgba(255, 255, 255, 0.1);
+  --line-soft: rgba(255, 255, 255, 0.05);
+  --line-strong: rgba(255, 255, 255, 0.22);
+  --hover-soft: rgba(255, 255, 255, 0.05);
+  --hover-strong: rgba(255, 255, 255, 0.1);
+  --panel: #1a1a1f;
+  --panel-2: #141418;
+  --surface: #101010;
+  --deep: #0b0d10;
+  --accent-ink: #fdba74;
+  --card-shadow: inset 0 3px 10px rgba(255, 255, 255, 0.04);
 }

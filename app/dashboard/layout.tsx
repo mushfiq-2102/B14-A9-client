@@ -1,5 +1,6 @@
 import { redirect } from "next/navigation"
 
+import { ThemeToggle } from "@/components/shared/theme-toggle"
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
 import { getSession } from "@/lib/core/server"
 import type { UserRole } from "@/lib/types/users"
@@ -22,7 +23,10 @@ const DashboardLayout = async ({ children }: { children: React.ReactNode }) => {
                 }}
             />
             <main className="min-w-0 flex-1">
-                <SidebarTrigger />
+                <div className="flex items-center justify-between px-3 pt-3 sm:px-6">
+                    <SidebarTrigger />
+                    <ThemeToggle />
+                </div>
                 {children}
             </main>
         </SidebarProvider>

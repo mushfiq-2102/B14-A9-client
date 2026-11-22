@@ -49,12 +49,12 @@ export function ImageUploadField({
         <RemoteImage
           src={value}
           alt="Selected image preview"
-          className={`size-16 shrink-0 border border-white/10 object-cover ${
+          className={`size-16 shrink-0 border border-line object-cover ${
             shape === "circle" ? "rounded-full" : "rounded-xl"
           }`}
         />
 
-        <label className="flex h-11 cursor-pointer items-center gap-2 rounded-lg border border-white/10 bg-[#1A1A1F] px-4 text-sm text-[#EDEDEF]/80 transition-colors hover:border-white/25 hover:text-white">
+        <label className="flex h-11 cursor-pointer items-center gap-2 rounded-lg border border-line bg-panel px-4 text-sm text-ink-2 transition-colors hover:border-line-strong hover:text-strong">
           <Upload aria-hidden className="size-4" />
           {uploading ? "Uploading..." : value ? "Change image" : "Upload image"}
           <input
@@ -71,7 +71,7 @@ export function ImageUploadField({
             type="button"
             onClick={() => onChange("")}
             aria-label="Remove selected image"
-            className="rounded-md p-2 text-white/50 transition-colors hover:text-white"
+            className="rounded-md p-2 text-ink-soft transition-colors hover:text-strong"
           >
             <Trash2 aria-hidden className="size-4" />
           </button>

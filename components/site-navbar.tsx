@@ -7,6 +7,7 @@ import { Menu, X } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { BrandLogo } from "@/components/shared/brand-logo"
+import { ThemeToggle } from "@/components/shared/theme-toggle"
 import { UserAvatar } from "@/components/shared/user-avatar"
 import { toast } from "@/components/ui/toast"
 import { cn } from "@/lib/utils"
@@ -22,6 +23,8 @@ export function SiteNavbar() {
     { label: "Home", href: "/" },
     { label: "All Equipment", href: "/all-equipment" },
     { label: "How It Works", href: "/#how-it-works" },
+    { label: "About Us", href: "/about" },
+    { label: "Contact Us", href: "/contact" },
     ...(session?.user
       ? [{ label: "Dashboard", href: `/dashboard/${session.user.role || "customer"}` }]
       : []),
@@ -53,14 +56,14 @@ export function SiteNavbar() {
 
   const linkClass = (href: string) =>
     cn(
-      "text-base tracking-[-0.0125rem] transition-colors hover:text-white",
+      "text-base tracking-[-0.0125rem] transition-colors hover:text-strong",
       isActive(href)
-        ? "font-bold text-[#EDEDEF] underline underline-offset-4 decoration-[#F97316]"
-        : "text-[#EDEDEF]/90"
+        ? "font-bold text-ink underline underline-offset-4 decoration-[#F97316]"
+        : "text-ink-2"
     )
 
   const signInClass =
-    "h-[38px] rounded-[8px] bg-transparent px-4 text-lg font-semibold text-[#FB923C] hover:bg-white/5 hover:text-[#FB923C]"
+    "h-[38px] rounded-[8px] bg-transparent px-4 text-lg font-semibold text-accent-ink hover:bg-hover-soft hover:text-accent-ink"
 
   return (
     <header className="sticky top-4 z-50 px-4 sm:px-6">
@@ -70,7 +73,7 @@ export function SiteNavbar() {
         {/* Desktop */}
         <nav
           aria-label="Main navigation"
-          className="hidden h-[68px] items-center gap-6 rounded-lg border border-white/10 bg-[#1A1A1F]/95 px-6 backdrop-blur lg:flex"
+          className="hidden h-[68px] items-center gap-6 rounded-lg border border-line bg-panel/95 px-6 backdrop-blur xl:flex"
         >
           <ul className="flex items-center gap-5">
             {NAV_LINKS.map((link) => (
@@ -90,6 +93,7 @@ export function SiteNavbar() {
           <div aria-hidden className="h-px w-6 bg-[#A8A8A8]/40" />
 
           <div className="flex items-center gap-4">
+            <ThemeToggle />
             {session?.user ? (
               <>
                 <UserAvatar
@@ -122,7 +126,9 @@ export function SiteNavbar() {
           </div>
         </nav>
 
-        {/* Mobile menu toggle */}
+        {/* Mobile: theme toggle + menu toggle */}
+        <div className="flex items-center gap-2 xl:hidden">
+        <ThemeToggle />
         <Button
           variant="ghost"
           size="icon"
@@ -130,17 +136,18 @@ export function SiteNavbar() {
           aria-controls="site-navbar-mobile"
           aria-label={open ? "Close menu" : "Open menu"}
           onClick={() => setOpen((value) => !value)}
-          className="size-11 rounded-lg border border-white/10 bg-[#1A1A1F] text-[#EDEDEF] hover:bg-white/5 hover:text-white lg:hidden"
+          className="size-11 rounded-lg border border-line bg-panel text-ink hover:bg-hover-soft hover:text-strong"
         >
           {open ? <X className="size-5" /> : <Menu className="size-5" />}
         </Button>
+        </div>
       </div>
 
       {/* Mobile panel */}
       {open ? (
         <div
           id="site-navbar-mobile"
-          className="mx-auto mt-3 flex max-w-[77rem] flex-col gap-2 rounded-lg border border-white/10 bg-[#1A1A1F] p-4 shadow-xl lg:hidden"
+          className="mx-auto mt-3 flex max-w-[77rem] flex-col gap-2 rounded-lg border border-line bg-panel p-4 shadow-xl xl:hidden"
         >
           <ul className="flex flex-col">
             {NAV_LINKS.map((link) => (
@@ -150,10 +157,10 @@ export function SiteNavbar() {
                   aria-current={isActive(link.href) ? "page" : undefined}
                   onClick={() => setOpen(false)}
                   className={cn(
-                    "block rounded-md px-3 py-2 text-base tracking-[-0.0125rem] transition-colors hover:bg-white/5 hover:text-white",
+                    "block rounded-md px-3 py-2 text-base tracking-[-0.0125rem] transition-colors hover:bg-hover-soft hover:text-strong",
                     isActive(link.href)
-                      ? "font-bold text-[#EDEDEF]"
-                      : "text-[#EDEDEF]/90"
+                      ? "font-bold text-ink"
+                      : "text-ink-2"
                   )}
                 >
                   {link.label}
@@ -168,7 +175,7 @@ export function SiteNavbar() {
             {session?.user ? (
               <Button
                 onClick={handleSignOut}
-                className="h-[44px] rounded-[8px] border border-white/10 bg-transparent px-4 text-lg font-semibold text-[#FB923C] hover:bg-white/5"
+                className="h-[44px] rounded-[8px] border border-line bg-transparent px-4 text-lg font-semibold text-accent-ink hover:bg-hover-soft"
               >
                 Logout
               </Button>
@@ -177,7 +184,7 @@ export function SiteNavbar() {
                 <Button
                   render={<Link href="/sign-in" onClick={() => setOpen(false)} />}
                   nativeButton={false}
-                  className="h-[44px] rounded-[8px] border border-white/10 bg-transparent px-4 text-lg font-semibold text-[#FB923C] hover:bg-white/5"
+                  className="h-[44px] rounded-[8px] border border-line bg-transparent px-4 text-lg font-semibold text-accent-ink hover:bg-hover-soft"
                 >
                   Login
                 </Button>

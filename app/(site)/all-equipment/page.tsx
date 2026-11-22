@@ -33,7 +33,7 @@ export default async function AllEquipmentPage({
         <div className="mx-auto w-full max-w-7xl px-4 py-10 sm:px-6">
             <header className="mb-8 flex flex-col gap-2">
                 <h1 className="page-title">All equipment</h1>
-                <p className="text-sm text-white/60">
+                <p className="text-sm text-ink-soft">
                     Browse approved equipment from verified owners.
                 </p>
             </header>
@@ -46,12 +46,12 @@ export default async function AllEquipmentPage({
                 <EquipmentFiltersPanel params={params} />
 
                 <section aria-label="Equipment results">
-                    <p className="mb-4 text-sm text-[#A0A0AB]">
+                    <p className="mb-4 text-sm text-ink-soft">
                         {total} {total === 1 ? "item" : "items"} found
                     </p>
 
                     {items.length === 0 ? (
-                        <p className="surface-card p-10 text-center text-sm text-[#6E6E78]">
+                        <p className="surface-card p-10 text-center text-sm text-ink-faint">
                             No equipment matches your search. Try different filters.
                         </p>
                     ) : (

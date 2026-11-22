@@ -39,8 +39,8 @@ export function WhyChooseUs() {
             <span className="brand-chip flex size-12 items-center justify-center rounded-xl">
               <Icon aria-hidden className="size-6" />
             </span>
-            <h3 className="font-heading text-lg font-semibold text-[#EDEDEF]">{title}</h3>
-            <p className="text-sm leading-6 text-[#A0A0AB]">{text}</p>
+            <h3 className="font-heading text-lg font-semibold text-ink">{title}</h3>
+            <p className="text-sm leading-6 text-ink-soft">{text}</p>
           </div>
         ))}
       </div>

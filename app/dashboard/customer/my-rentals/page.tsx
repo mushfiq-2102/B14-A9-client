@@ -45,7 +45,7 @@ export default async function MyRentalsPage({
                 />
                 <tbody>
                     {bookings.map((booking) => (
-                        <tr key={booking._id} className="border-b border-white/5 last:border-0">
+                        <tr key={booking._id} className="border-b border-line-soft last:border-0">
                             <td className={cn(tdClass, "font-medium")}>{booking.equipmentName}</td>
                             <td className={tdClass}>{formatDate(booking.startDate)}</td>
                             <td className={tdClass}>{formatDate(booking.endDate)}</td>

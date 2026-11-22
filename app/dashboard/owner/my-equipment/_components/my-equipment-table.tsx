@@ -15,7 +15,7 @@ export function MyEquipmentTable({ equipment }: { equipment: EquipmentRow[] }) {
             <THead columns={["Equipment name", "Category", "Rental price", "Available quantity", "Status", "Actions"]} />
             <tbody>
                 {equipment.map((item) => (
-                    <tr key={item._id} className="border-b border-white/5 last:border-0">
+                    <tr key={item._id} className="border-b border-line-soft last:border-0">
                         <td className={cn(tdClass, "font-medium")}>{item.name}</td>
                         <td className={tdClass}>{item.category}</td>
                         <td className={tdClass}>{formatRate(item.rentalPrice, item.rentalType)}</td>

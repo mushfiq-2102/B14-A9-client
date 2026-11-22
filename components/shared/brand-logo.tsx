@@ -14,7 +14,7 @@ export function BrandLogo() {
       <span className="btn-brand flex size-10 items-center justify-center rounded-xl">
         <Tractor aria-hidden className="size-6" />
       </span>
-      <span className="font-heading text-2xl font-bold tracking-[-0.02em] text-white">
+      <span className="font-heading text-2xl font-bold tracking-[-0.02em] text-strong">
         RentRig
       </span>
     </Link>

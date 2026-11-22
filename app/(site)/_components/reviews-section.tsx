@@ -65,15 +65,15 @@ export function ReviewsSection() {
                   className={
                     index < review.rating
                       ? "size-4 fill-[#F97316] text-[#F97316]"
-                      : "size-4 text-white/20"
+                      : "size-4 text-ink-faint"
                   }
                 />
               ))}
             </div>
-            <blockquote className="flex-1 text-sm leading-6 text-[#EDEDEF]/85">
+            <blockquote className="flex-1 text-sm leading-6 text-ink-2">
               {review.comment}
             </blockquote>
-            <figcaption className="text-sm font-semibold text-[#EDEDEF]">
+            <figcaption className="text-sm font-semibold text-ink">
               {review.name}
             </figcaption>
           </motion.figure>

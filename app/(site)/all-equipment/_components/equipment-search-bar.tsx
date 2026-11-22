@@ -28,7 +28,7 @@ export function EquipmentSearchBar() {
             <div className="relative flex-1">
                 <Search
                     aria-hidden
-                    className="pointer-events-none absolute top-1/2 left-3 size-5 -translate-y-1/2 text-white/50"
+                    className="pointer-events-none absolute top-1/2 left-3 size-5 -translate-y-1/2 text-ink-soft"
                 />
                 <input
                     type="search"
@@ -36,7 +36,7 @@ export function EquipmentSearchBar() {
                     onChange={(event) => setValue(event.target.value)}
                     placeholder="Search by name, location or category"
                     aria-label="Search equipment"
-                    className="surface-field h-12 w-full rounded-lg pl-10 pr-3 text-base text-[#EDEDEF] outline-none placeholder:text-white/50"
+                    className="surface-field h-12 w-full rounded-lg pl-10 pr-3 text-base text-ink outline-none placeholder:text-ink-soft"
                 />
             </div>
             <button type="submit" className="btn-brand h-12 rounded-lg px-6 text-base font-semibold">

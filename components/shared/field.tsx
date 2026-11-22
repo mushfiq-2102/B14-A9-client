@@ -25,7 +25,7 @@ export function Field({
                 {required ? <span className="text-destructive/70">*</span> : null}
             </Label>
             {children}
-            {hint ? <p className="text-xs text-white/40">{hint}</p> : null}
+            {hint ? <p className="text-xs text-ink-faint">{hint}</p> : null}
         </div>
     )
 }

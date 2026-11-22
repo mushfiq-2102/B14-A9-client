@@ -32,7 +32,7 @@ export function UserAvatar({
     return (
         <CircleUserRound
             aria-label={name ? `${name}'s avatar (default icon)` : "Profile picture"}
-            className={cn("size-8 shrink-0 text-white/60", className)}
+            className={cn("size-8 shrink-0 text-ink-soft", className)}
         />
     )
 }

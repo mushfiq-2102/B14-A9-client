@@ -27,11 +27,11 @@ export function PriceRangeFilter({
     }
 
     const fieldClass =
-        "surface-field h-10 w-full rounded-md px-3 text-sm text-[#EDEDEF] outline-none placeholder:text-white/40"
+        "surface-field h-10 w-full rounded-md px-3 text-sm text-ink outline-none placeholder:text-ink-faint"
 
     return (
         <form onSubmit={handleSubmit} className="flex flex-col gap-3">
-            <h2 className="text-base font-semibold tracking-[-0.02em] text-[#EDEDEF]">
+            <h2 className="text-base font-semibold tracking-[-0.02em] text-ink">
                 Price range
             </h2>
             <div className="flex items-center gap-2">
@@ -44,7 +44,7 @@ export function PriceRangeFilter({
                     aria-label="Minimum price"
                     className={fieldClass}
                 />
-                <span aria-hidden className="text-white/40">-</span>
+                <span aria-hidden className="text-ink-faint">-</span>
                 <input
                     type="number"
                     min={0}
@@ -57,7 +57,7 @@ export function PriceRangeFilter({
             </div>
             <button
                 type="submit"
-                className="h-10 rounded-md border border-white/10 bg-[#1A1A1F] text-sm font-medium text-[#EDEDEF] transition-colors hover:border-[#F97316]/60"
+                className="h-10 rounded-md border border-line bg-panel text-sm font-medium text-ink transition-colors hover:border-[#F97316]/60"
             >
                 Apply price
             </button>

@@ -11,7 +11,7 @@ export default function Loading() {
             <span className="btn-brand flex size-14 animate-pulse items-center justify-center rounded-2xl">
                 <Tractor aria-hidden className="size-8" />
             </span>
-            <p className="text-sm text-white/60">Loading RentRig...</p>
+            <p className="text-sm text-ink-soft">Loading RentRig...</p>
         </div>
     )
 }

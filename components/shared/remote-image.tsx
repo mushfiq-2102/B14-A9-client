@@ -28,7 +28,7 @@ export function RemoteImage({
       <div
         aria-hidden
         className={cn(
-          "flex items-center justify-center bg-[#1A1A1F] text-white/25",
+          "flex items-center justify-center bg-panel text-ink-faint",
           className
         )}
       >

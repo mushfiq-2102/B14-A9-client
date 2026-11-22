@@ -82,10 +82,10 @@ export function DashboardSidebar({
                         className="size-9"
                     />
                     <div className="flex min-w-0 flex-col">
-                        <span className="truncate text-sm font-medium text-[#EDEDEF]">
+                        <span className="truncate text-sm font-medium text-ink">
                             {user.name}
                         </span>
-                        <span className="truncate text-xs text-[#6E6E78]">
+                        <span className="truncate text-xs text-ink-faint">
                             {ROLE_META[role].label}
                         </span>
                     </div>
