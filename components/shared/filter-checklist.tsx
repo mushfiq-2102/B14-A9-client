@@ -1,5 +1,5 @@
 // Option list used by the All Equipment sidebar filters ("Category",
-// "Rental Type"…). Same sr-only-input pattern as PillGroup.
+// "Rental Type"…). Radio inputs are visually hidden (sr-only) and drawn as checkbox-style tiles.
 //
 // Choosing an option writes it to the URL query string (the page is a server
 // component that asks the Express API to filter). An option with an empty

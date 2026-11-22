@@ -17,20 +17,6 @@ export const formatRate = (price: number, rentalType: RentalType) =>
 export const formatDate = (date: string) =>
     new Date(date).toLocaleDateString("en-US", { month: "short", day: "2-digit", year: "numeric", timeZone: "UTC" })
 
-/** ISO timestamp → "2 hours ago". Fixed en-US so SSR and client agree. */
-export const formatRelativeTime = (date: string) => {
-    const minutes = Math.floor((Date.now() - new Date(date).getTime()) / 60000)
-    if (minutes < 1) return "just now"
-    if (minutes < 60) return `${minutes} minute${minutes === 1 ? "" : "s"} ago`
-    const hours = Math.floor(minutes / 60)
-    if (hours < 24) return `${hours} hour${hours === 1 ? "" : "s"} ago`
-    const days = Math.floor(hours / 24)
-    if (days < 7) return `${days} day${days === 1 ? "" : "s"} ago`
-    const weeks = Math.floor(days / 7)
-    if (weeks < 5) return `${weeks} week${weeks === 1 ? "" : "s"} ago`
-    return formatDate(date)
-}
-
 /** "2026-11" → "Nov 2026". */
 export const formatMonth = (month: string) =>
     new Date(`${month}-01T00:00:00Z`).toLocaleDateString("en-US", { month: "short", year: "numeric", timeZone: "UTC" })

@@ -155,12 +155,8 @@
   @apply font-heading text-[28px] leading-[1.15] font-bold tracking-[-0.02em] text-white;
 }
 
-/* Purple overline above page titles ("Create New Listing"). */
-.overline-label {
-  @apply text-sm font-medium text-[#FDBA74];
-}
 
-/* Purple chip (numbered section bullets, row avatars, type pills). */
+/* Brand chip (numbered section bullets, stat icons, category pills). */
 .brand-chip {
   @apply bg-[#F97316]/15 text-[#FDBA74];
 }
